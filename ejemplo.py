@@ -32,3 +32,19 @@ if __name__== '__main__':
     for pareja in alumno.items():
         print( f'{pareja[0]} : {pareja[1]}' )
     print()
+
+    # Se guardan los datos (values) del alumno (diccionario) en un archivo
+    ArchivoEscritura = open('agenda.txt', 'w')
+
+    # Para cada pareja del diccionario se guarda el valor [1]
+    for pareja in alumno.items():
+        ArchivoEscritura.write( pareja[1] )
+        
+        if pareja[0] != 'Carrera': # Si la clave (pareja[0]) no es la ultima ('Carrera'), se escribe una coma
+            ArchivoEscritura.write( ',' )
+        
+        else: # si no, se escribe un salto de linea
+            ArchivoEscritura.write( '\n' )
+
+
+    ArchivoEscritura.close()
